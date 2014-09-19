@@ -1,9 +1,31 @@
+//*************************
+//
+// File:    WordSearcher.java
+// Package: ---
+// Unit:    Class WordSearcher
+//
+//*************************
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Hashtable;
 import java.util.Scanner;
 
 
+/**
+ *  The WordSearcher Thread will continuously read words from the file WordSearcher 
+ *  is passed upon instantiation. If a word matches a target word (stored as a key 
+ *  in a Hashtable which it is also passed in upon instantiation), this word, along
+ *  with the file it came from, will be immediately be passed to the PrintWriter to
+ *  be printed. When a word is found, the value associated with the Hashtable key 
+ *  will be set to zero so the word is not printed again. When all words have been 
+ *  read, an empty string is passed to the PrintWriter to signal the PrintWriter to
+ *  terminate.
+ *  
+ *  @author   Michael Yachanin (mry1294)
+ *  @version  Sep 16, 2014
+ *
+ */
 public class WordSearcher implements Runnable {
 	
 	// hidden variables
@@ -19,12 +41,12 @@ public class WordSearcher implements Runnable {
 	 *  @param  words     Hashtable of words to search for
 	 */
 	public WordSearcher(String filename, Hashtable<String, Integer> words) {
+		this.filename = filename;
 		try {
 			this.fin = new Scanner(new File(filename));
 		} catch (FileNotFoundException e) {
-			Search.usage();
+			this.fileUsage();
 		}
-		this.filename = filename;
 		this.words = words;
 		this.printMonitor = PrintMonitor.getInstance();
 	}
@@ -54,7 +76,7 @@ public class WordSearcher implements Runnable {
 					printMonitor.put(s, this.filename);
 					
 					// set value in dictionary to 0 --> signifies we've seen the word
-					words.replace(s, 0);
+					words.put(s, 0);
 				}
 			}
 		}
@@ -63,5 +85,15 @@ public class WordSearcher implements Runnable {
 		printMonitor.put("", "");
 	}
 	
-	
+	/**
+	 *  This is called when a file is not found
+	 *  
+	 *  Prints a usage message and exits program
+	 */
+	private void fileUsage() {
+		System.out.println("java Search <files> <words>");
+		System.out.println("File: " + this.filename + " was not found.");
+		System.out.println("Please retry with a valid list of filenames.");
+		System.exit(1);
+	}
 }
