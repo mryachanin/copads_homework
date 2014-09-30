@@ -1,0 +1,40 @@
+echo "test 1"
+java Search a.txt 1234 > outputs/1
+echo "test 2"
+java Search b.txt,z.txt Hello > outputs/2
+echo "test 3"
+java Search c.txt THE > outputs/3
+echo "test 4"
+java Search a.txt,b.txt,c.txt name,always,healthy,Gandhi > outputs/4
+echo "test 5"
+java Search d.txt,e.txt,f.txt liberty,things,many,Franklin > outputs/5
+echo "test 6"
+java Search g.txt,h.txt,i.txt liberty,government,tyranny,Jefferson > outputs/6
+echo "test 7"
+java Search j.txt,k.txt,l.txt fool,power,shepherd,Abraham > outputs/7
+echo "test 8"
+java Search a.txt,d.txt,g.txt,j.txt liberty,democracy,Internet > outputs/8
+echo "test 9"
+java Search b.txt,e.txt,h.txt,k.txt always,majority,algorithm > outputs/9
+echo "test 10"
+java Search c.txt,f.txt,i.txt,l.txt liberty,sheep,hope > outputs/10
+echo "test 11"
+java Search a.txt WAR,NAME,DEAD > outputs/11
+echo "test 12"
+java Search b.txt I,AND,THE,RISE > outputs/12
+echo "test 13"
+java Search c.txt IT,IS,UNWISE,WEAKNESS > outputs/13
+echo "test 14"
+java Search d.txt THOSE,MUCH,SAFETY,LIBERTY > outputs/14
+echo "test 15"
+java Search e.txt WRATH,GREED,SLOTH,PRIDE,LUST,ENVY,GLUTTONY > outputs/15
+echo "test 16"
+java Search f.txt HOW,MANY,OBSERVE,DEVIL > outputs/16
+echo "test 17"
+java Search g.txt,l.txt the > outputs/17
+echo "test 18"
+java Search h.txt,k.txt the > outputs/18
+echo "test 19"
+java Search i.txt,j.txt the > outputs/19
+echo "test 20"
+java Search a.txt,b.txt,c.txt,d.txt,e.txt,f.txt,g.txt,h.txt,i.txt,j.txt,k.txt,l.txt Quantum,Computers,Factor,Integers,Efficiently > outputs/20

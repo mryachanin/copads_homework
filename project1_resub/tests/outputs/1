@@ -1,0 +1,4 @@
+java Search <files> <words>
+<files> is a list of one or more text file names separated by commas with no whitespace
+<words> is a list of one or more target words separated by commas with no whitespace
+A word is defined to be a maximal length sequence of letters A through Z and a through z.
